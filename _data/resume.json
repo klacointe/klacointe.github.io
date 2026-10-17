@@ -6,7 +6,7 @@
     "image": "https://klacointe.github.io/assets/avatar.jpg",
     "url": "https://klacointe.github.io",
     "summary": "Principal Engineer with 20+ years building web products, working remotely since 2007.\nA team player at heart: I'm happiest hands-on inside a team, building together, mentoring and raising the bar collectively 🤗\nFirst developer at af83 and Welcome to the Jungle, running Elixir in production since 2017, and author of open-source libraries with 800k+ downloads.\nI like almost all programming languages and love open source ❤️",
-    "coreSkills": ["Elixir", "Ruby on Rails", "Platform engineering", "Observability", "TDD", "Mentoring", "Open source"],
+    "coreSkills": ["Elixir", "Phoenix", "Ruby on Rails", "Platform engineering", "Observability", "TDD", "Mentoring", "Open source"],
     "location": {
       "city": "Sainte-Luce-sur-Loire",
       "region": "Pays de la Loire",

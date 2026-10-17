@@ -13,7 +13,7 @@ A team player at heart: I'm happiest hands-on inside a team, building together, 
 First developer at af83 and Welcome to the Jungle, running Elixir in production since 2017, and author of open-source libraries with 800k+ downloads.  
 I like almost all programming languages and love open source ❤️
 
-Core skills: Elixir · Ruby on Rails · Platform engineering · Observability · TDD · Mentoring · Open source
+Core skills: Elixir · Phoenix · Ruby on Rails · Platform engineering · Observability · TDD · Mentoring · Open source
 
 ## Experience
 
