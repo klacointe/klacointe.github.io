@@ -1,0 +1,186 @@
+---
+---
+{%- assign r = site.data.resume -%}
+{%- assign b = r.basics -%}
+{%- assign current = r.work | first -%}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ b.name }} — {{ b.label | escape }}</title>
+  <meta name="description" content="{{ b.summary | strip_newlines | escape }}">
+  <meta property="og:title" content="{{ b.name }}">
+  <meta property="og:description" content="{{ b.label | escape }}">
+  <meta property="og:url" content="{{ b.url }}">
+  <meta property="og:image" content="{{ b.image }}">
+  <meta property="og:type" content="profile">
+  <link rel="canonical" href="{{ b.url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  <link rel="alternate" type="application/json" href="{{ '/resume.json' | relative_url }}" title="JSON Resume">
+  <link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/newsreader-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": {{ b.name | jsonify }},
+      "jobTitle": {{ current.position | jsonify }},
+      "worksFor": { "@type": "Organization", "name": {{ current.name | jsonify }}, "url": {{ current.url | jsonify }} },
+      "url": {{ b.url | jsonify }},
+      "image": {{ b.image | jsonify }},
+      "address": { "@type": "PostalAddress", "addressLocality": {{ b.location.city | jsonify }}, "addressRegion": {{ b.location.region | jsonify }}, "addressCountry": {{ b.location.countryCode | jsonify }} },
+      "sameAs": {{ b.profiles | map: "url" | jsonify }}
+    }
+  </script>
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <div class="hero-top">
+        <img class="avatar" src="{{ '/assets/photo.jpg' | relative_url }}" alt="" width="88" height="88">
+        <div>
+          <h1>{{ b.name }}</h1>
+          <p class="label">{{ b.label }}</p>
+          <p class="location">{{ b.location.city }}, {{ b.location.region }}, France</p>
+        </div>
+      </div>
+      <ul class="contact">
+        {%- for p in b.profiles %}
+        <li><a href="{{ p.url }}" target="_blank" rel="me noopener">{{ p.network }}</a></li>
+        {%- endfor %}
+        <li class="print-only"><a href="{{ b.url }}">{{ b.url | remove: "https://" }}</a></li>
+        <li class="no-print"><a class="js-print" href="{{ '/?print' | relative_url }}">Save as PDF</a></li>
+        <li class="no-print"><a href="{{ '/resume.json' | relative_url }}" target="_blank" rel="noopener">JSON Resume</a></li>
+      </ul>
+      <p class="lead">{{ b.summary | escape | newline_to_br }}</p>
+      {%- if b.coreSkills %}
+      <ul class="chips chips-core" aria-label="Core skills">
+        {%- for k in b.coreSkills %}<li>{{ k }}</li>{% endfor %}
+      </ul>
+      {%- endif %}
+    </header>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      {%- assign companies = r.work | group_by: "name" %}
+      {%- for company in companies %}
+      {%- assign first = company.items | first %}
+      {%- assign last = company.items | last %}
+      <article class="entry">
+        <div class="entry-meta">
+          <time>{% include period.html start=last.startDate end=first.endDate %}</time>
+          {%- if first.location %}<span>{{ first.location }}</span>{% endif %}
+        </div>
+        <div class="entry-body">
+          {%- if company.items.size > 1 %}
+          <h3>{% if first.url %}<a href="{{ first.url }}">{{ company.name }}</a>{% else %}{{ company.name }}{% endif %}</h3>
+          <div class="roles">
+            {%- for job in company.items %}
+            <div class="role">
+              <h4>{{ job.position }}</h4>
+              <p class="role-period">{% include period.html start=job.startDate end=job.endDate %}</p>
+              {% include job.html job=job %}
+            </div>
+            {%- endfor %}
+          </div>
+          {%- else %}
+          <h3>{{ first.position }}</h3>
+          <p class="org">{% if first.url %}<a href="{{ first.url }}">{{ first.name }}</a>{% else %}{{ first.name }}{% endif %}</p>
+          {% include job.html job=first %}
+          {%- endif %}
+        </div>
+      </article>
+      {%- endfor %}
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="rows">
+        {%- for s in r.skills %}
+        <div class="row">
+          <dt>{{ s.name }}</dt>
+          <dd><ul class="chips">{% for k in s.keywords %}<li>{{ k }}</li>{% endfor %}</ul></dd>
+        </div>
+        {%- endfor %}
+      </dl>
+    </section>
+
+    <section id="open-source">
+      <h2>Open Source</h2>
+      {%- assign authored = r.projects | where_exp: "p", "p.roles contains 'Author'" %}
+      {%- assign featured = r.projects | where_exp: "p", "p.roles contains 'Contributor'" | where_exp: "p", "p.url" %}
+      {%- assign contributions = r.projects | where: "type", "contributions" %}
+
+      <h3 class="subhead">Author</h3>
+      <ul class="projects">
+        {%- for p in authored %}{% include project.html project=p %}{% endfor %}
+      </ul>
+
+      <h3 class="subhead">Contributor</h3>
+      <ul class="projects">
+        {%- for p in featured %}{% include project.html project=p %}{% endfor %}
+      </ul>
+      <dl class="rows">
+        {%- for c in contributions %}
+        <div class="row">
+          <dt>{{ c.name }}</dt>
+          <dd><ul class="chips">{% for repo in c.repositories %}<li><a href="https://github.com/{{ repo }}" target="_blank" rel="noopener">{{ repo | split: "/" | last }}</a></li>{% endfor %}</ul></dd>
+        </div>
+        {%- endfor %}
+      </dl>
+    </section>
+
+    <div class="split">
+      <section id="education">
+        <h2>Education</h2>
+        {%- for e in r.education %}
+        <div class="edu">
+          <p class="edu-title">{{ e.studyType }}{% if e.area %} <span class="muted">· {{ e.area }}</span>{% endif %}</p>
+          <p class="edu-meta">{{ e.institution }}{% if e.location %}, {{ e.location }}{% endif %} · {% include period.html start=e.startDate end=e.endDate %}</p>
+        </div>
+        {%- endfor %}
+      </section>
+
+      <section id="languages">
+        <h2>Languages</h2>
+        {%- for l in r.languages %}
+        <div class="edu">
+          <p class="edu-title">{{ l.language }}</p>
+          <p class="edu-meta">{{ l.fluency }}</p>
+        </div>
+        {%- endfor %}
+      </section>
+    </div>
+
+    {%- if r.interests %}
+    <section id="interests">
+      <h2>Interests</h2>
+      <p class="interests">{{ r.interests | map: "name" | join: " · " }}</p>
+    </section>
+    {%- endif %}
+
+    <footer class="footer">
+      <p>Last updated {{ site.time | date: "%B %Y" }}</p>
+    </footer>
+  </main>
+
+  <script>
+    // "Save as PDF" opens the print dialog in place. Opening the page with ?print (for example in a new tab) prints it on load.
+    document.querySelectorAll(".js-print").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.print();
+      });
+    });
+    if (new URLSearchParams(window.location.search).has("print")) {
+      window.addEventListener("load", function () {
+        document.fonts.ready.then(function () { window.print(); });
+      });
+    }
+  </script>
+</body>
+</html>

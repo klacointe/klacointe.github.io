@@ -1,0 +1,17 @@
+{%- comment -%}Summary, highlights and stack of one work entry.{%- endcomment -%}
+{%- assign job = include.job -%}
+{%- if job.summary %}
+<p class="entry-summary">{{ job.summary | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+{%- endif %}
+{%- if job.highlights %}
+<ul class="highlights">
+  {%- for h in job.highlights %}
+  <li>{{ h | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+  {%- endfor %}
+</ul>
+{%- endif %}
+{%- if job.keywords %}
+<ul class="chips" aria-label="Stack">
+  {%- for k in job.keywords %}<li>{{ k }}</li>{% endfor %}
+</ul>
+{%- endif %}

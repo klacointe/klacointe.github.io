@@ -1,0 +1,6 @@
+{%- comment -%}Renders "start – end", "start – Present", or a single date when start and end are equal.{%- endcomment -%}
+{%- if include.end and include.end == include.start -%}
+  {%- include date.html date=include.start -%}
+{%- else -%}
+  {%- include date.html date=include.start %} – {% if include.end %}{% include date.html date=include.end %}{% else %}Present{% endif -%}
+{%- endif -%}

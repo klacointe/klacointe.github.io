@@ -1,0 +1,9 @@
+{%- comment -%}Formats a JSON Resume date ("YYYY", "YYYY-MM" or "YYYY-MM-DD") as "Mon YYYY" or "YYYY".{%- endcomment -%}
+{%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+{%- assign parts = include.date | split: "-" -%}
+{%- if parts.size > 1 -%}
+  {%- assign m = parts[1] | plus: 0 | minus: 1 -%}
+  {{- months[m] }} {{ parts[0] -}}
+{%- else -%}
+  {{- parts[0] -}}
+{%- endif -%}

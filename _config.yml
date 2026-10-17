@@ -1,0 +1,14 @@
+title: Kevin Lacointe
+url: https://klacointe.github.io
+baseurl: ""
+
+exclude:
+  - resume.md
+  - scripts
+  - linkedin.pdf
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LINKEDIN.md
+  - vendor
+  - .bundle

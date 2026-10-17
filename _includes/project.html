@@ -1,0 +1,2 @@
+{%- assign p = include.project -%}
+<li><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.name }}</a> — {{ p.description | remove: "." }}<span class="project-meta"> · {{ p.keywords | join: " · " }}{% if p.stats %} · {{ p.stats }}{% endif %}</span></li>
