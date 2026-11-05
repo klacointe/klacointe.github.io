@@ -56,10 +56,6 @@ projects.select { |p| p["roles"].include?("Author") }.each do |p|
   out << "- #{link(p["name"], p["url"])}: #{p["description"].chomp(".")}#{stats}"
 end
 out << "" << "Contributor:" << ""
-projects.select { |p| p["roles"].include?("Contributor") && p["url"] }.each do |p|
-  stats = p["stats"] ? " (#{p["stats"]})" : ""
-  out << "- #{link(p["name"], p["url"])}: #{p["description"].chomp(".")}#{stats}"
-end
 projects.select { |p| p["type"] == "contributions" }.each do |p|
   repos = p["repositories"].map { |repo| link(repo.split("/").last, "https://github.com/#{repo}") }
   out << "- #{p["name"]}: #{repos.join(", ")}"

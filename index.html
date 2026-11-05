@@ -124,7 +124,6 @@
     <section id="open-source">
       <h2>Open Source</h2>
       {%- assign authored = r.projects | where_exp: "p", "p.roles contains 'Author'" %}
-      {%- assign featured = r.projects | where_exp: "p", "p.roles contains 'Contributor'" | where_exp: "p", "p.url" %}
       {%- assign contributions = r.projects | where: "type", "contributions" %}
 
       <h3 class="subhead">Author</h3>
@@ -133,9 +132,6 @@
       </ul>
 
       <h3 class="subhead">Contributor</h3>
-      <ul class="projects">
-        {%- for p in featured %}{% include project.html project=p %}{% endfor %}
-      </ul>
       <dl class="rows">
         {%- for c in contributions %}
         <div class="row">

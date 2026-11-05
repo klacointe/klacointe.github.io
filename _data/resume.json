@@ -147,25 +147,10 @@
       "keywords": ["Crystal"]
     },
     {
-      "name": "algoliax",
-      "description": "Algolia client for Elixir.",
-      "url": "https://github.com/WTTJ/algoliax",
-      "roles": ["Contributor"],
-      "keywords": ["Elixir"],
-      "stats": "450k+ downloads"
-    },
-    {
-      "name": "chargebeex",
-      "description": "Elixir client for the Chargebee API.",
-      "url": "https://github.com/WTTJ/chargebeex",
-      "roles": ["Contributor"],
-      "keywords": ["Elixir"]
-    },
-    {
       "name": "Elixir",
       "type": "contributions",
       "roles": ["Contributor"],
-      "repositories": ["smpallen99/coherence", "beam-community/bamboo", "stavro/arc", "elixir-waffle/waffle", "techgaun/zxcvbn-elixir", "arjan/singleton", "duartejc/mailchimp"]
+      "repositories": ["beam-community/bamboo", "smpallen99/coherence", "stavro/arc", "elixir-waffle/waffle", "arjan/singleton", "WTTJ/algoliax", "techgaun/zxcvbn-elixir", "duartejc/mailchimp", "WTTJ/chargebeex"]
     },
     {
       "name": "Ruby",

@@ -100,9 +100,7 @@ Author:
 
 Contributor:
 
-- [algoliax](https://github.com/WTTJ/algoliax): Algolia client for Elixir (450k+ downloads)
-- [chargebeex](https://github.com/WTTJ/chargebeex): Elixir client for the Chargebee API
-- Elixir: [coherence](https://github.com/smpallen99/coherence), [bamboo](https://github.com/beam-community/bamboo), [arc](https://github.com/stavro/arc), [waffle](https://github.com/elixir-waffle/waffle), [zxcvbn-elixir](https://github.com/techgaun/zxcvbn-elixir), [singleton](https://github.com/arjan/singleton), [mailchimp](https://github.com/duartejc/mailchimp)
+- Elixir: [bamboo](https://github.com/beam-community/bamboo), [coherence](https://github.com/smpallen99/coherence), [arc](https://github.com/stavro/arc), [waffle](https://github.com/elixir-waffle/waffle), [singleton](https://github.com/arjan/singleton), [algoliax](https://github.com/WTTJ/algoliax), [zxcvbn-elixir](https://github.com/techgaun/zxcvbn-elixir), [mailchimp](https://github.com/duartejc/mailchimp), [chargebeex](https://github.com/WTTJ/chargebeex)
 - Ruby: [carrierwave](https://github.com/carrierwaveuploader/carrierwave), [errbit](https://github.com/errbit/errbit), [mongoid-slug](https://github.com/mongoid/mongoid-slug), [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on), [acts_as_tree](https://github.com/amerine/acts_as_tree), [devise_invitable](https://github.com/scambra/devise_invitable), [user_agent](https://github.com/mssola/user_agent), [instagram-ruby-gem](https://github.com/facebookarchive/instagram-ruby-gem), [wikidata](https://github.com/wilg/wikidata)
 - JavaScript: [react-data-grid](https://github.com/Comcast/react-data-grid), [instantsearch](https://github.com/algolia/instantsearch), [react-tags](https://github.com/react-tags/react-tags)
 - Python: [mealie-mcp-server](https://github.com/rldiao/mealie-mcp-server)
