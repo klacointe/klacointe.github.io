@@ -17,7 +17,7 @@ The content lives in one file, [`_data/resume.json`](_data/resume.json), written
 | `resume.md` | Markdown copy of the resume, generated from the JSON |
 | `scripts/resume_md.rb` | Regenerates `resume.md` |
 
-A few fields go beyond the JSON Resume schema: `basics.coreSkills` (header chips), `work[].keywords` (stack line), `education[].location`, and `projects[].repositories` (GitHub repos for contribution rows).
+A few fields go beyond the JSON Resume schema: `basics.coreSkills` (header chips), `basics.stats` (key figures under the summary, screen only), `work[].keywords` (stack line), `education[].location`, and `projects[].repositories` (GitHub repos for contribution rows).
 
 ## Update the resume
 

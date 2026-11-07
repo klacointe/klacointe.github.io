@@ -8,7 +8,7 @@ Sainte-Luce-sur-Loire, Pays de la Loire, France
 
 ## Summary
 
-Principal Engineer with 20+ years building web products, working remotely since 2007.  
+Principal Engineer with 20+ years building web products, working fully remote since 2010.  
 A team player at heart: I'm happiest hands-on inside a team, building together, mentoring and raising the bar collectively 🤗  
 First developer at af83 and Welcome to the Jungle, running Elixir in production since 2017, and author of open-source libraries with 800k+ downloads.  
 I like almost all programming languages and love open source ❤️
@@ -47,7 +47,7 @@ First developer, alongside a technical PM. Introduced test-driven development, t
 Stack: Ruby on Rails, Elixir/Phoenix, React/Redux, PostgreSQL, Redis, Sidekiq, Algolia
 
 ### [af83](https://fr.wikipedia.org/wiki/Af83) — Lead Full-Stack Developer
-*2007 – Feb 2016* · Nantes, France · Remote
+*2007 – Feb 2016* · Paris, then Nantes, France · Remote from 2010
 
 First developer, in a team of two at the start. Introduced test-driven development, taking projects from no tests at all to high test coverage, and mentored the developers who joined in adopting it.
 
@@ -70,7 +70,7 @@ Stack: Ruby on Rails, Go, PHP, Elasticsearch, Backbone.js, jQuery, MongoDB, Post
 Stack: PHP, MySQL, Apache, Linux
 
 ### Freelance — Developer / Graphic Designer
-*2004 – 2005*
+*2004 – 2005* · Caen, France
 
 - Built ActionScript/Flash and PHP websites for photographers and other freelancers.
 - Graphic design, including vinyl record covers.

@@ -49,6 +49,8 @@
     <svg class="icon icon-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
   </button>
 
+  <a class="skip-link no-print" href="#experience">Skip to experience</a>
+
   <main class="page">
 
     <header class="hero">
@@ -62,13 +64,27 @@
       </div>
       <ul class="contact">
         {%- for p in b.profiles %}
-        <li><a href="{{ p.url }}" target="_blank" rel="me noopener">{{ p.network }}</a></li>
+        {%- assign icon = p.network | downcase %}
+        <li><a href="{{ p.url }}" target="_blank" rel="me noopener">{% include icon.html name=icon %}<span>{{ p.network }}</span></a></li>
         {%- endfor %}
         <li class="print-only"><a href="{{ b.url }}">{{ b.url | remove: "https://" }}</a></li>
-        <li class="no-print"><a class="js-print" href="{{ '/?print' | relative_url }}">Save as PDF</a></li>
         <li class="no-print"><a href="{{ '/resume.json' | relative_url }}" target="_blank" rel="noopener">JSON Resume</a></li>
+        <li class="no-print contact-action"><a class="button js-print" href="{{ '/?print' | relative_url }}">{% include icon.html name="download" %}<span>Save as PDF</span></a></li>
       </ul>
-      <p class="lead">{{ b.summary | escape | newline_to_br }}</p>
+      {%- comment %}First line of the summary is the lead; the remaining lines form the intro paragraph.{% endcomment %}
+      {%- assign summary = b.summary | escape | newline_to_br | split: "<br />" %}
+      <p class="lead">{{ summary | first | strip }}</p>
+      {%- if summary.size > 1 %}
+      {%- capture intro %}{% for line in summary offset: 1 %}{{ line | strip }} {% endfor %}{% endcapture %}
+      <p class="intro">{{ intro | strip }}</p>
+      {%- endif %}
+      {%- if b.stats %}
+      <dl class="stats no-print">
+        {%- for s in b.stats %}
+        <div class="stat"><dt>{{ s.label }}</dt><dd>{{ s.value }}</dd></div>
+        {%- endfor %}
+      </dl>
+      {%- endif %}
       {%- if b.coreSkills %}
       <ul class="chips chips-core" aria-label="Core skills">
         {%- for k in b.coreSkills %}<li>{{ k }}</li>{% endfor %}
@@ -136,7 +152,7 @@
         {%- for c in contributions %}
         <div class="row">
           <dt>{{ c.name }}</dt>
-          <dd><ul class="chips">{% for repo in c.repositories %}<li><a href="https://github.com/{{ repo }}" target="_blank" rel="noopener">{{ repo | split: "/" | last }}</a></li>{% endfor %}</ul></dd>
+          <dd><ul class="dots">{% for repo in c.repositories %}<li><a href="https://github.com/{{ repo }}" target="_blank" rel="noopener">{{ repo | split: "/" | last }}</a></li>{% endfor %}</ul></dd>
         </div>
         {%- endfor %}
       </dl>
