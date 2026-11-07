@@ -5,8 +5,13 @@
     "label": "Principal Engineer · Elixir, platform & observability",
     "image": "https://klacointe.github.io/assets/avatar.jpg",
     "url": "https://klacointe.github.io",
-    "summary": "Principal Engineer with 20+ years building web products, working remotely since 2007.\nA team player at heart: I'm happiest hands-on inside a team, building together, mentoring and raising the bar collectively 🤗\nFirst developer at af83 and Welcome to the Jungle, running Elixir in production since 2017, and author of open-source libraries with 800k+ downloads.\nI like almost all programming languages and love open source ❤️",
+    "summary": "Principal Engineer with 20+ years building web products, working fully remote since 2010.\nA team player at heart: I'm happiest hands-on inside a team, building together, mentoring and raising the bar collectively 🤗\nFirst developer at af83 and Welcome to the Jungle, running Elixir in production since 2017, and author of open-source libraries with 800k+ downloads.\nI like almost all programming languages and love open source ❤️",
     "coreSkills": ["Elixir", "Phoenix", "Ruby on Rails", "Platform engineering", "Observability", "TDD", "Open source"],
+    "stats": [
+      { "value": "20+", "label": "years building web products" },
+      { "value": "Since 2010", "label": "working fully remote" },
+      { "value": "2×", "label": "first developer at af83 and Welcome to the Jungle" }
+    ],
     "location": {
       "city": "Sainte-Luce-sur-Loire",
       "region": "Pays de la Loire",
@@ -66,7 +71,7 @@
       "name": "af83",
       "position": "Lead Full-Stack Developer",
       "url": "https://fr.wikipedia.org/wiki/Af83",
-      "location": "Nantes, France · Remote",
+      "location": "Paris, then Nantes, France · Remote from 2010",
       "startDate": "2007",
       "endDate": "2016-02",
       "summary": "First developer, in a team of two at the start. Introduced test-driven development, taking projects from no tests at all to high test coverage, and mentored the developers who joined in adopting it.",
@@ -97,6 +102,7 @@
     {
       "name": "Freelance",
       "position": "Developer / Graphic Designer",
+      "location": "Caen, France",
       "startDate": "2004",
       "endDate": "2005",
       "highlights": [
